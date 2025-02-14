@@ -20,8 +20,10 @@ export default {
     extend: {
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        aurora: "aurora 60s linear infinite",
       },
       keyframes: {
+
         spotlight: {
           "0%": {
             opacity: 0,
@@ -32,12 +34,21 @@ export default {
             transform: "translate(-50%,-40%) scale(1)",
           },
         },
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
       },
     },
   },
   plugins: [
     require('daisyui'),
     addVariablesForColors,
+    
     function ({
       matchUtilities,
       theme

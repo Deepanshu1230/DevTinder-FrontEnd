@@ -23,7 +23,7 @@ const Login = () => {
       );
       // console.log(res.data);
       dispatch(addUser(res.data));
-      return navigate("/");
+      return navigate("/feed");
     } catch (err) {
       console.log(err);
     }
