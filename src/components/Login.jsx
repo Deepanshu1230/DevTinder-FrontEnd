@@ -10,6 +10,7 @@ const Login = () => {
   const [password, SetPassword] = useState("Nehaal@123");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error, Seterror] = useState("");
 
   async function handleLogin() {
     try {
@@ -25,6 +26,7 @@ const Login = () => {
       dispatch(addUser(res.data));
       return navigate("/feed");
     } catch (err) {
+      Seterror(err?.response?.data);
       console.log(err);
     }
   }
@@ -66,6 +68,7 @@ const Login = () => {
         </div>
 
         {/* Login Button */}
+        <p className="text-red-600">{error}</p>
         <button
           className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition-all"
           onClick={handleLogin}

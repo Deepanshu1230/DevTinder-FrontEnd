@@ -1,12 +1,34 @@
 import React from "react";
 import Giraffe from "../images/giraffe.gif";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ColourfulText from "../components/ui/colourful-text";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
+import { removeUser } from "../utils/userSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
   console.log(user);
+  const navigate = useNavigate();
+  async function handleLogout() {
+    try {
+      const res = await axios.post(
+        BASE_URL + "/logout",
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+
+      navigate("/");
+      dispatch(removeUser());
+    } catch (err) {
+      //Error logic maybe redirect to error page
+    }
+  }
+
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-gray-700">
       <div className="navbar h-16 flex items-center px-6">
@@ -50,7 +72,7 @@ const Navbar = () => {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <a onClick={handleLogout}>Logout</a>
                 </li>
               </ul>
             </div>
