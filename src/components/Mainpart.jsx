@@ -19,7 +19,7 @@ const Mainpart = () => {
 
         {/* Main Content */}
         <div className="relative z-100 text-center">
-          <Outlet />
+          <Outlet/>
         </div>
       </div>
     </div>
