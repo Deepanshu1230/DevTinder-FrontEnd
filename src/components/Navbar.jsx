@@ -31,11 +31,11 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-gray-700">
-      <div className="navbar h-16 flex items-center px-6">
+      <div className="navbar h-16 flex items-center px-6 ">
         {/* Left Side - Logo */}
         <div className="flex-1 flex items-center">
           <img className="w-[50px] ml-3" src={Giraffe} alt="giraffe" />
-          <Link to="/" className="ml-3 text-2xl font-extrabold text-white">
+          <Link to="/feed" className="ml-3 text-2xl font-extrabold text-white">
             DevTinder
           </Link>
         </div>
@@ -52,8 +52,8 @@ const Navbar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar hover:bg-blue-400 transition-all duration-500"
               >
-                <div className="w-10 rounded-full">
-                  <img alt="User Profile" src={user.photoUrl} />
+                <div className="w-10 h-10 overflow-hidden rounded-full">
+                  <img alt="User Profile" src={user.photoUrl} className="w-full object-left-top"/>
                 </div>
               </div>
               <ul
@@ -69,8 +69,13 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a>Settings</a>
+                  <a onClick={()=> navigate("/Connection")}>Connections</a>
                 </li>
+
+                <li>
+                  <a onClick={()=> navigate("/Request")}>Request</a>
+                </li>
+
                 <li>
                   <a onClick={handleLogout}>Logout</a>
                 </li>

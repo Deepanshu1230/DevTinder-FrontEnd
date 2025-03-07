@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     
-      <footer className=" bg-black/80 backdrop-blur-lg border-t border-gray-700 text-gray-300 py-8 px-6 text-center shadow-md ">
+      <footer className="bg-black/80 backdrop-blur-lg border-t border-gray-700 text-gray-300 py-8 px-6 text-center shadow-md">
       {/* Top Links */}
       <nav className="flex justify-center space-x-6 text-lg font-semibold mb-4">
         <a className="hover:text-white transition duration-300 cursor-pointer">About Us</a>

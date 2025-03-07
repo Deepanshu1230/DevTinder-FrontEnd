@@ -6,13 +6,18 @@ import Profile from "./components/Profile";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Feed from "./components/Feed";
+import "react-toastify/dist/ReactToastify.css";
 import Mainpage from "./components/Mainpage";
 import Mainpart from "./components/Mainpart";
+import { ToastContainer, toast } from "react-toastify";
+import Connection from "./components/Connection";
+import Request from "./components/Request";
 
 const App = () => {
   return (
     <div>
       <div>
+        
         <Provider store={appStore}>
           <BrowserRouter>
             <Routes>
@@ -21,6 +26,9 @@ const App = () => {
                 <Route path="/feed" element={<Feed />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/Connection" element={<Connection />} />
+                <Route path="/Request" element={<Request />} />
+
               </Route>
             </Routes>
           </BrowserRouter>
