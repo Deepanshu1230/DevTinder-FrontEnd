@@ -73,7 +73,7 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <a onClick={()=> navigate("/Request")}>Request</a>
+                  <Link to="/Request">Request</Link>
                 </li>
 
                 <li>
