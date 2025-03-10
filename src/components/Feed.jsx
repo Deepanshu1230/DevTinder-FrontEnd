@@ -10,8 +10,8 @@ const Feed = () => {
   console.log(feed);
   const dispatch = useDispatch();
   async function getfeed() {
+    if (feed) return;
     try {
-      if (feed) return;
       const res = await axios.get(BASE_URL + "/feed", {
         withCredentials: true,
       });
@@ -31,10 +31,16 @@ const Feed = () => {
     return (
       <div className="mt-52 mb-52">
         <div>
-          <img src={image} className="mt-40 rounded-3xl w-[250px] sm:w-[500px] mx-auto" alt="" />
+          <img
+            src={image}
+            className="mt-40 rounded-3xl w-[250px] sm:w-[500px] mx-auto"
+            alt=""
+          />
         </div>
 
-        <div className="text-3xl font-bold pt-10 mx-auto text-gray-400">No new User Found</div>
+        <div className="text-3xl font-bold pt-10 mx-auto text-gray-400">
+          No new User Found
+        </div>
       </div>
     );
 

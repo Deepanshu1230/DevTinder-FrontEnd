@@ -50,7 +50,7 @@ const Connection = () => {
           ({ firstName, lastName, photoUrl, about, age, gender }, index) => (
             <div
               key={index}
-              className="flex flex-row  bg-black gap-x-4 mt-6 rounded-xl p-3 border border-white items-center sm:items-start"
+              className="flex flex-col md:flex-row bg-black gap-x-4 mt-6 rounded-xl p-3 border border-white items-center sm:items-start"
             >
               <div className="border-2 border-purple-400 rounded-full overflow-hidden w-[80px] h-[80px]">
                 <img

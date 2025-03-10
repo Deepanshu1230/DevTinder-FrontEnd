@@ -8,6 +8,9 @@ import { BASE_URL } from "../utils/constants";
 const Login = () => {
   const [emailId, SetEmail] = useState("Nehaal042@gmail.com");
   const [password, SetPassword] = useState("Nehaal@123");
+  const [firstName, Setfirstname] = useState("");
+  const [lastName, Setlastname] = useState("");
+  const [Isloginform, SetIslogin] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, Seterror] = useState("");
@@ -31,13 +34,65 @@ const Login = () => {
     }
   }
 
+  const handleSignup = async () => {
+    try{
+      const res=await axios.post(
+        BASE_URL + "/signup", 
+        {firstName,lastName,emailId,password},
+        {withCredentials:true});
+      
+        console.log(res.data)
+      dispatch(addUser(res.data));
+      return navigate("/profile");
+
+
+    }
+    catch(err){
+      Seterror(err?.response?.data);
+      
+
+
+    }
+
+  }
+
   return (
     <div className="flex items-center justify-center min-h-screen  p-4">
       {/* Login Card */}
       <div className="bg-black/40 backdrop-blur-lg border border-gray-700 shadow-xl rounded-xl p-8 w-96">
         <h2 className="text-3xl font-extrabold text-white text-center mb-6">
-          Login
+          {Isloginform ? "Login" : "Signup"}
         </h2>
+
+        {!Isloginform && (
+          <>
+            {" "}
+            <div className="mb-5">
+              <label className="block text-gray-300 font-medium mb-2 text-left">
+                First Name
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your FirstName"
+                value={firstName}
+                onChange={(e) => Setfirstname(e.target.value)}
+                className="w-full p-3 bg-black/40 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              />
+            </div>
+            <div className="mb-5">
+              <label className="block text-gray-300 font-medium mb-2 text-left">
+                Last Name
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your LastName"
+                value={lastName}
+                onChange={(e) => Setlastname(e.target.value)}
+                className="w-full p-3 bg-black/40 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              />
+            </div>{" "}
+          </>
+        )}
 
         {/* Email Input */}
         <div className="mb-5">
@@ -71,10 +126,19 @@ const Login = () => {
         <p className="text-red-600">{error}</p>
         <button
           className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition-all"
-          onClick={handleLogin}
+          onClick={Isloginform ? handleLogin : handleSignup}
         >
-          Login
+          {Isloginform ? "Login" : "Signup"}
         </button>
+        
+        <div className="pt-4">
+        <p onClick={() => SetIslogin((value) => !value)}
+          className="text-left font-bold hover:text-blue-400 transition-all duration-300">
+          {Isloginform ? "NewUser ? Signup Here" : "ExistingUser ? Login Here"}
+          </p>
+
+        </div>
+        
       </div>
     </div>
   );

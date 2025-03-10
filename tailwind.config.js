@@ -43,6 +43,13 @@ export default {
           },
         },
       },
+
+      fontFamily:{
+        Whitney:["Whitney"],
+        Ginto:["Ginto"],
+        ggsans:["ggsans"],
+        GintoNord:["GintoNord"],
+      },
     },
   },
   plugins: [
@@ -74,6 +81,8 @@ export default {
 
     
   ],
+
+ 
 
   daisyui: {
     themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]

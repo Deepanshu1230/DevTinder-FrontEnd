@@ -35,7 +35,7 @@ const Navbar = () => {
         {/* Left Side - Logo */}
         <div className="flex-1 flex items-center">
           <img className="w-[50px] ml-3" src={Giraffe} alt="giraffe" />
-          <Link to="/feed" className="ml-3 text-2xl font-extrabold text-white">
+          <Link to="/feed" className="ml-3 text-2xl  font-extrabold text-white">
             DevTinder
           </Link>
         </div>

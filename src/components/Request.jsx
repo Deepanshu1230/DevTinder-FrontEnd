@@ -40,18 +40,27 @@ const Request = () => {
     fetchRequest();
   }, []);
 
-  if (!request) return (
-    <div>
-      <div>404</div>
-    </div>
-  );
+  if (!request)
+    return (
+      <div>
+        <div>404</div>
+      </div>
+    );
 
-  if (request.length === 0) return(
-    <div className="mt-24 mb-24 w-full">
-      <div><img src={image} className="w-[300px] h-[300px] md:w-[400px] md:h-[400px]"/></div>
-      <div><p className="text-3xl font-bold">No Request Found</p></div>
-    </div>
-  )
+  if (request.length === 0)
+    return (
+      <div className="mt-24 mb-24 w-full">
+        <div>
+          <img
+            src={image}
+            className="w-[300px] h-[300px] md:w-[400px] md:h-[400px]"
+          />
+        </div>
+        <div>
+          <p className="text-3xl font-bold">No Request Found</p>
+        </div>
+      </div>
+    );
 
   return (
     <div>
@@ -68,7 +77,7 @@ const Request = () => {
             return (
               <div
                 key={_id}
-                className="flex justify-evenly items-center bg-black gap-x-4 mt-6 rounded-xl p-3 border border-white"
+                className="flex flex-col md:flex-row justify-evenly items-center bg-black gap-x-4 mt-6 rounded-xl p-3 border border-white"
               >
                 <div className="border-2 border-purple-400 rounded-full overflow-hidden w-[80px] h-[80px]">
                   <img
@@ -78,14 +87,14 @@ const Request = () => {
                   />
                 </div>
                 <div className="flex flex-col items-start text-center">
-                  <p className="font-bold text-lg">
+                  <p className="font-bold text-lg w-full md:text-start">
                     {firstName + " " + lastName}
                   </p>
-                  <p className="font-semibold text-gray-400">{age}</p>
+                  <p className="font-semibold text-gray-400 w-full md:text-start">{age}</p>
                   <p className="text-gray-300">{about}</p>
                 </div>
 
-                <div className="flex flex-col">
+                <div className="flex flex-row md:flex-col mt-4 gap-x-3 md:gap-4 ">
                   <button
                     className="bg-pink-500 px-4 py-2 rounded-xl"
                     onClick={() => Reviewrequest("accepted", request._id)}

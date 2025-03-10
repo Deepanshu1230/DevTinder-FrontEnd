@@ -12,6 +12,7 @@ import Mainpart from "./components/Mainpart";
 import { ToastContainer, toast } from "react-toastify";
 import Connection from "./components/Connection";
 import Request from "./components/Request";
+import './index.css';
 
 const App = () => {
   return (

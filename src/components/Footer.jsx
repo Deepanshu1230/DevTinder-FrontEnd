@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     
-      <footer className="bg-black/80 backdrop-blur-lg border-t border-gray-700 text-gray-300 py-8 px-6 text-center shadow-md">
+      <footer className=" relative bg-black/80 backdrop-blur-lg border-t border-gray-700 text-gray-300 py-8 px-6 text-center shadow-md">
       {/* Top Links */}
       <nav className="flex justify-center space-x-6 text-lg font-semibold mb-4">
         <a className="hover:text-white transition duration-300 cursor-pointer">About Us</a>
@@ -51,6 +51,13 @@ const Footer = () => {
         © {new Date().getFullYear()} - All rights reserved by{" "}
         <span className="font-bold text-white">DevTinder</span>
       </p>
+
+
+      <div className="bottom-0 mb-0 pb-0 w-full h-full ">
+  <p className="text-7xl md:text-[300px] font-extrabold font-Whitney leading-none text-white">
+    Devtinder
+  </p>
+</div>
     </footer>
 
     
