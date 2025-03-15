@@ -52,9 +52,11 @@ const Navbar = () => {
                 role="button"
                 className="btn btn-ghost btn-circle avatar hover:bg-blue-400 transition-all duration-500"
               >
-                <div className="w-10 h-10 overflow-hidden rounded-full">
-                  <img alt="User Profile" src={user.photoUrl} className="w-full object-left-top"/>
+                <div className="relative w-10 h-10 overflow-hidden rounded-full">
+                  <img alt="User Profile" src={user.photoUrl} className="relative w-full object-left-top"/>
+                   
                 </div>
+                <div className="bg-green-400 w-2 rounded-full absolute  right-2 top-1 animate-bounce"></div>
               </div>
               <ul
                 tabIndex={0}
@@ -74,6 +76,10 @@ const Navbar = () => {
 
                 <li>
                   <Link to="/Request">Request</Link>
+                </li>
+
+                <li>
+                  <Link to="/Premium">Buy Premium</Link>
                 </li>
 
                 <li>

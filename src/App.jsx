@@ -12,6 +12,7 @@ import Mainpart from "./components/Mainpart";
 import { ToastContainer, toast } from "react-toastify";
 import Connection from "./components/Connection";
 import Request from "./components/Request";
+import Premium from "./components/Premium";
 import './index.css';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/Connection" element={<Connection />} />
                 <Route path="/Request" element={<Request />} />
+                <Route path="/Premium" element={<Premium />} />
 
               </Route>
             </Routes>

@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addFeed } from "../utils/Userfeed";
+import { addFeed, clearFeed } from "../utils/Userfeed";
 import Usercard from "./Usercard";
 import image from "../images/Building customer base.gif";
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
+  const user = useSelector((store) => store.user);
   console.log(feed);
   const dispatch = useDispatch();
   async function getfeed() {
@@ -22,7 +23,9 @@ const Feed = () => {
   }
 
   useEffect(() => {
-    getfeed();
+   
+      getfeed();
+   
   }, []);
 
   if (!feed) return;

@@ -53,8 +53,8 @@ const Footer = () => {
       </p>
 
 
-      <div className="bottom-0 mb-0 pb-0 w-full h-full ">
-  <p className="text-7xl md:text-[300px] font-extrabold font-Whitney leading-none text-white">
+      <div className=" w-full h-full ">
+  <p className="bottom-0  text-7xl md:text-[300px] font-extrabold font-Whitney leading-none text-white">
     Devtinder
   </p>
 </div>
